@@ -94,21 +94,18 @@ const submitTransaction = () => {
     return;
   }
 
-  const endTime = new Date().getTime() - time.value;
-  
+  const typingTime = new Date().getTime() - time.value;
+
   time.value = 0;
 
   const formData = new FormData();
 
   formData.append("amount", transactionData.value.amount);
   formData.append("to", transactionData.value.to);
-  formData.append("endTime", endTime);
+  formData.append("typingTime", typingTime);
   if (transactionData.value.file) {
     formData.append("file", transactionData.value.file);
   }
-
-  console.log(endTime);
-  
 
   // const modal = document.getElementById("transactionModal");
   // const modalInstance = bootstrap.Modal.getInstance(modal);
